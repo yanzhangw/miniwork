@@ -1,0 +1,143 @@
+{
+    /* 编辑栏配置 */
+    "window.zoomLevel": 1.5,
+    "scm.inputFontSize": 11,
+    "debug.console.fontSize": 12,
+    "markdown.preview.fontSize": 12,
+    "terminal.integrated.fontSize": 12,
+    "editor.fontSize": 12,
+    "files.autoSave": "onFocusChange",
+
+    /*终端配置*/
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    
+    /* 其他配置 */
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "editor.accessibilitySupport": "off",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportGeneralTypeIssues": "warning",
+        "reportOptionalMemberAccess": "warning",
+    },
+    "C_Cpp.errorSquiggles": "enabled",
+    "extensions.ignoreRecommendations": true,
+    "cmake.configureOnOpen": false,
+    "editor.minimap.enabled": false,
+    "git.confirmSync": false,
+    "remote.SSH.serverInstallPath": {
+        "ssh-b.lpai.lixiang.com": "/lpai"
+    },
+    
+    /* vim 插件配置 */
+    "vim.easymotion": true, // 启用easymotion插件
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true, // 是否启用系统粘贴板作为vim寄存器
+    "vim.useCtrlKeys": true, // 是否由vim接管ctrl+any的按键
+    "vim.hlsearch": true, // 是否突出显示与当前搜索匹配的所有文本
+    "vim.highlightedyank.enable": true, // 被复制时是否高亮
+    "vim.highlightedyank.duration": 150, // 被复制时高亮持续时间：0.5秒
+    "vim.mouseSelectionGoesIntoVisualMode": true,  
+    "vim.handleKeys": {  // 这个是配置的 vscode 的快捷键的绑定，这里是避免与 vim 快捷键的冲突
+        "<C-c>": false,  // 复制 
+        "<C-a>": false,  // 全选 
+        "<C-b>": false,  // 打开资源管理器（查看: 切换主侧栏可见性）
+        "<C-t>": false,  // 按照名称搜索文件（转到工作区中的符号...）
+        "<C-/>": false,  // 注释（笔记本: 批注所选单元格）
+        "<C-m>": false,  // 终端中的问题窗口（查看: 切换 问题）
+        "<C-h>": false,  // 向左移动编辑 tab（查看: 打开上一个编辑器）
+        "<C-l>": false,  // 向右移动编辑 tab（查看: 打开下一个编辑器）
+        "<C-'>": false,  // 打开关闭终端（查看: 切换 终端）
+        "<C-i>": false,  // 打开copilot内联聊天
+        "<C-w>": false,  // 打（查看: 关闭编辑器)
+        "<C-)>": false,  // 选中资源管理器 （查看: 将焦点置于主侧栏）
+        "<C-]>": false,  // GitHub Copilot: Next Suggestion 
+        "<C-[>": false,  // GitHub Copilot: Previous Suggestion
+        "<C-shift-w>": false,   // 关闭当前活动编辑 tab（查看: 关闭编辑器）
+        "<C-\\>": false,        // 将当前所在的编辑器向右分屏 （查看: 拆分编辑器）
+        "<C-shift-\\>": false,  // 合并所用分屏（查看: 合并所有编辑器组）
+        "<C-shift-h>": false,   // 聚焦于左侧的编辑栏 （查看: 聚焦到左侧编辑器组）
+        "<C-shift-l>": false,   // 聚焦于右侧的编辑栏（查看: 聚焦到右侧编辑器组）
+        "<C-alt-i>": false,   // 打开 GitHub Copilot Chat
+    },
+    "editor.lineNumbers": "relative",  // 这个相对主要是提示用处，一次跳转多少行
+    "vim.normalModeKeyBindingsNonRecursive": [  // 移动窗口的快捷键
+        {
+            "before": ["<C-j>"], 
+            "after": ["<C-e>"]
+        },
+        {
+            "before": ["<C-k>"],
+            "after": ["<C-y>"]
+        },
+        {
+            "before": ["/", "?"],
+            "commands": [
+                {
+                    "command": "editor.action.clipboardCopyAction",
+                    "when": "editorTextFocus"
+                },
+                {
+                    "command": "actions.find",
+                    "args": { "isReplace": false, "searchScope": 1 },
+                    "when": "editorTextFocus"
+                },
+                {
+                    "command": "default:type",
+                    "args": { "text": "<C-R>\"<CR>" },
+                    "when": "editorFocus && !editorReadonly"
+                }
+            ]
+        }
+    ],
+
+    /* 垂直标尺配置 */
+    "editor.rulers": [
+        { "column": 100, "color": "#00ff4c66" },
+        { "column": 120, "color": "#ff2f0078" },
+      ],
+
+    /* GXT-Doxygen Documentation Generator 插件配置 */
+    // 作者信息
+    "doxdocgen.generic.authorName": "wangyanzhang",
+    "doxdocgen.generic.authorEmail": "wangyanzhang@lixiang.com",
+    "doxdocgen.generic.authorTag": "@Author : {author} email:{email}",
+
+    // 日期格式
+    "doxdocgen.generic.dateFormat": "YYYY-MM-DD",
+    "doxdocgen.generic.dateTemplate": "@date  {date}",
+
+    // 简介格式
+    "doxdocgen.generic.briefTemplate": "@brief  {text}",
+
+    // 文件注释格式
+    "doxdocgen.file.fileTemplate": "@file  {name}",
+    "doxdocgen.file.versionTag": "@version  1.0",
+    "doxdocgen.file.copyrightTag": [
+        "@copyright (c) 2025 Li Auto Inc."
+    ],
+    "doxdocgen.file.customTag": [
+        "modification history :",
+        "Date:       Version:      Author:     ",
+        "Changes: "
+    ],
+    "doxdocgen.file.fileOrder": [
+        "file",      // @file
+        "brief",     // @brief 简介
+        "date",      // 日期
+        "empty",     // 空行
+        "copyright"  // 版权
+    ],
+
+    // 函数注释格式
+    "doxdocgen.generic.paramTemplate": "@param[in]  {param} ",
+    "doxdocgen.generic.returnTemplate": "@return  {type} ",
+    "doxdocgen.generic.order": [
+        "brief",     // 简介
+        "tparam",    // 模板参数
+        "param",     // 参数
+        "return"     // 返回值
+    ],
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "vscode-icons",
+}
