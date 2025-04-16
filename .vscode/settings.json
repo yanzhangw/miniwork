@@ -140,4 +140,5 @@
     ],
     "workbench.startupEditor": "none",
     "workbench.iconTheme": "vscode-icons",
+    "DockerRun.DisableDockerrc": true,
 }
