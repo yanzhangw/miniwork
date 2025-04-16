@@ -1,0 +1,43 @@
+{ // 用于调试器的设置, launch 用来执行编译好的文件
+    "version": "0.2.0",
+    "configurations": [
+        {  // python Debug 配置
+            "name": "Python Debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {  // C++ Debug 配置
+            "name": "CXX Debug",
+            "type": "cppdbg", // 配置类型，这里只能为cppdbg, 默认即可
+            "request": "launch", // 请求配置类型，launch模式允许我们打断点进行调试，默认即可
+            "program": "${workspaceFolder}/build/bin/main", // (常用) 程序生成的可执行文件的路径，也是对这个程度进行调试
+            "args": [], // (常用) 程序(main函数)的入口参数
+            "stopAtEntry": false, // 在入口处暂停，选true相当于在入口处增加断点，一般设置为false
+            "cwd": "${workspaceFolder}", // 调试程序时的工作目录，一般为${workspaceFolder}即代码所在目录 
+            "environment": [],
+            "externalConsole": false, // (常用) 调试时是否显示控制台窗口，一般设置为true显示控制台
+            "MIMode": "gdb", // 使用gdb进行调试
+            "setupCommands": [ // 用来设置gdb的参数，默认即可
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb" // debug调试工具的路径，这里使用gdb所在的路径
+        },
+        {
+            "name": "CUDA Debug",
+            "type": "cuda-gdb",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/main", // (常用) 程序生成的可执行文件的路径，也是对这个程度进行调试
+        }
+    ]
+}
